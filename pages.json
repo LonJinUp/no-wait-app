@@ -5,6 +5,24 @@
 			"style": {
 				"navigationBarTitleText": "no-wait"
 			}
+		},
+		{
+			"path": "pages/choose/index",
+			"style": {
+				"navigationBarTitleText": "選擇座位人數"
+			}
+		},
+		{
+			"path": "pages/choose/success",
+			"style": {
+				"navigationBarTitleText": "成功取票"
+			}
+		},
+		{
+			"path": "pages/choose/result",
+			"style": {
+				"navigationBarTitleText": "取消結果"
+			}
 		}
 	],
 	"globalStyle": {

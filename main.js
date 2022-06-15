@@ -1,9 +1,18 @@
 import App from './App'
 import Footer from '@/components/Footer'
 import Logo from '@/components/Logo'
+import LoginHeader from '@/components/LoginHeader'
+import {toast, navGoto, callPhone, amountConversion} from '@/utils/utils'
 
 Vue.component('FooterBox',Footer)
 Vue.component('Logo',Logo)
+Vue.component('LoginHeader',LoginHeader)
+
+Vue.prototype.$toast = toast
+Vue.prototype.$navGoto = navGoto
+Vue.prototype.$callPhone = callPhone
+Vue.prototype.$amountConversion = amountConversion
+
 
 // #ifndef VUE3
 import Vue from 'vue'

@@ -1,5 +1,4 @@
 
-import store from '../store'
 /**
  * 提示方法
  * @param {String} title 提示文字
@@ -188,17 +187,4 @@ export function callPhone(phoneNumber) {
  */
 export function formatDate(val) {
   return `${val.slice(0, 4)}-${val.slice(4, 6)}-${val.slice(6)}`
-}
-
-
-export function setStorageSync(key,data){
-	uni.setStorageSync(store.state.userinfo.userinfo.agentNo+"_"+key,data)
-}
-
-export function getStorageSync(key,data){
-	return uni.getStorageSync(store.state.userinfo.userinfo.agentNo+"_"+key)
-}
-
-export function removeStorageSync(key){
-	return uni.removeStorageSync(store.state.userinfo.userinfo.agentNo+"_"+key)
 }
