@@ -8,7 +8,7 @@
 				</view>
 				<view class="name">已完成指示</view>
 			</view>
-			<view class="btn">返回首頁</view>
+			<view class="btn" @click="$navGoto('/pages/choose/index')">返回首頁</view>
 		</view>
 	</view>
 </template>

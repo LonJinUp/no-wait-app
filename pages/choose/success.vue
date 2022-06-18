@@ -10,7 +10,7 @@
 				<view class="name">B組 3-4 位</view>
 				<view class="name">已取得輪候號碼</view>
 			</view>
-			<view class="btn">返回首頁</view>
+			<view class="btn" @click="$navGoto('/pages/choose/index')">返回首頁</view>
 		</view>
 		<view class="logout" @click="cancel">取消輪候</view>
 	</view>

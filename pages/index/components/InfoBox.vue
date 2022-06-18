@@ -1,6 +1,6 @@
 <template>
 	<view class="info-box-wrapper">
-		<view class="info">
+		<view class="info" @click="$navGoto('/pages/choose/index')">
 			<view class="top flex-bt">
 				<view class="left">
 					<view class="icon-box">
