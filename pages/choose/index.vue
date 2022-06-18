@@ -4,29 +4,108 @@
 		<view class="shop-name">店舖: 吃茶三千</view>
 		<view class="number-list">
 			<view class="title">座位管理</view>
-			<view class="items flex-bt">
-				<view class="left">A 組(座位)</view>
-				<view class="right">1-2</view>
+			<view class="items flex-bt" @click="choose(item.id)" v-for="item in list" :key="item.id" :class="[item.id == active ? 'active' : '']">
+				<view class="left">{{item.label}}</view>
+				<view class="right">{{item.num}}</view>
 			</view>
-			<view class="items flex-bt">
-				<view class="left">B 組(座位)</view>
-				<view class="right">3-4</view>
-			</view>
-			<view class="items flex-bt">
-				<view class="left">C 組(座位)</view>
-				<view class="right">5-8</view>
-			</view>
-			<view class="btn">確認</view>
+			<view class="btn" @click="sure">確認</view>
 			<view class="logout">退出</view>
+		</view>
+		<view class="alert flex-center" v-if="alert">
+			<view class="content">
+				<view class="title">请输入whatsapp</view>
+				<input type="text" :value="whatsapp" placeholder="whatsapp" />
+				<view class="btn-box flex-bt">
+					<view class="item" @click="goto">確認</view>
+					<view class="item" @click="sure">取消</view>
+				</view>
+			</view>
 		</view>
 	</view>
 </template>
 
 <script>
+	export default {
+		data() {
+			return {
+				list: [
+					{label: 'A 組(座位)', num: '1-2', id: 1},
+					{label: 'B 組(座位)', num: '3-4', id: 2},
+					{label: 'C 組(座位)', num: '5-8', id: 3}
+				],
+				alert: false,
+				active: '1',
+				whatsapp: '',
+			}
+		},
+		methods: {
+			choose(id) {
+				this.active = id
+			},
+			sure() {
+				this.alert = !this.alert
+			},
+			goto() {
+				this.$navGoto('/pages/choose/success')
+			}
+		}
+	}
 </script>
 
 <style lang="scss" scoped>
 	.choose-wrapper{
+		.alert{
+			position: fixed;
+			top: 0;
+			left: 0;
+			background: rgba(0,0,0,0.4);
+			width: 100%;
+			height: 100%;
+			.content{
+				width: 600rpx;
+				// height: 400rpx;
+				background: #FFFFFF;
+				border-radius: 20rpx;
+				box-sizing: border-box;
+				padding-top: 30rpx;
+				padding-bottom: 0px;
+				.title{
+					width: 100%;
+					text-align: center;
+					font-size: 38rpx;
+					font-weight: bold;
+				}
+				input{
+					width: 90%;
+					margin: 0 auto;
+					height: 70rpx;
+					display: block;
+					border: 2px solid #C0C0C0;
+					border-radius: 10rpx;
+					padding:0 10rpx;
+					box-sizing: border-box;
+					margin-top: 30rpx;
+				}
+				.btn-box{
+					width: 100%;
+					height: 100rpx;
+					border-top: 1px solid #C0C0C0;
+					margin-top: 30rpx;
+					.item{
+						width: 50%;
+						line-height: 100rpx;
+						text-align: center;
+						&:nth-child(1){
+							color: #0CA311;
+							border-right: 1px solid #C0C0C0;
+						}
+						&:nth-child(2){
+							color: #994861;
+						}
+					}
+				}
+			}
+		}
 		width: 100%;
 		height: 100%;
 		.shop-name{
@@ -70,6 +149,9 @@
 				font-size: 36rpx;
 				font-weight: 400;
 				color: #49779A;
+				&.active{
+					border-color: #0CA311;
+				}
 			}
 		}
 		.btn{

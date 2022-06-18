@@ -2,7 +2,7 @@
 	<view class="index-wrapper bg">
 		<logo />
 		<view class="title">O2O定單輪候管理系統</view>
-		<info-box v-for="(item,index) in info" :info="item" :key="index" />
+		<info-box v-for="(item,index) in info" :info="item" :key="index"  />
 		<footer-box />
 	</view>
 </template>
